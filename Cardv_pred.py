@@ -1,6 +1,9 @@
-import streamlit as st
+
+
+ import streamlit as st
 import pickle
 import numpy as np
+from PIL import Image
 
 # Load the model
 with open('cardiovascular_disease_model.pkl', 'rb') as file:
@@ -9,9 +12,9 @@ with open('cardiovascular_disease_model.pkl', 'rb') as file:
 # Page settings
 st.set_page_config(page_title="Cardiovascular Risk Predictor", layout="wide")
 
-# Display heart image from URL
-st.image("https://images.unsplash.com/photo-1603394173444-2cceafe2f7d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-         caption="Know Your Heart Health ❤️", use_column_width=True)
+# Load and display heart image
+image = Image.open("heart.png")  # Make sure this file exists in your working directory
+st.image(image, caption="Know Your Heart Health ❤️", use_column_width=True)
 
 # App title and description
 st.title("🫀 Cardiovascular Disease Risk Predictor")
@@ -105,6 +108,3 @@ if st.button("🔍 Predict"):
             "ST Slope": list(st_slope_dict.keys())[list(st_slope_dict.values()).index(st_slope)]
         })
 
-
-    
-    
