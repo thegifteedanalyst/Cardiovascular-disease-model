@@ -6,9 +6,15 @@ import numpy as np
 with open('cardiovascular_disease_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
+# Page settings
 st.set_page_config(page_title="Cardiovascular Risk Predictor", layout="wide")
-st.title("🫀 Cardiovascular Disease Risk Predictor")
 
+# Display heart image from URL
+st.image("https://images.unsplash.com/photo-1603394173444-2cceafe2f7d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+         caption="Know Your Heart Health ❤️", use_column_width=True)
+
+# App title and description
+st.title("🫀 Cardiovascular Disease Risk Predictor")
 st.markdown("""
 This app uses a machine learning model to predict the risk of cardiovascular disease based on health parameters. 
 Please fill in the details below and click **Predict** to see your result.
@@ -33,6 +39,7 @@ with col1:
     chest_pain = chest_pain_dict[chest_pain]
 
     resting_bp = st.number_input("Resting Blood Pressure (mm Hg)", min_value=80, max_value=200, value=120)
+
     cholesterol = st.selectbox("Cholesterol Level", [
         "Normal (<200)", "Borderline High (200-239)", "High (≥240)"])
     cholesterol_dict = {
@@ -56,10 +63,12 @@ with col2:
     resting_ecg = resting_ecg_dict[resting_ecg]
 
     max_hr = st.number_input("Maximum Heart Rate Achieved", min_value=60, max_value=220, value=150)
+
     exercise_angina = st.selectbox("Exercise-Induced Angina?", ["No", "Yes"])
     exercise_angina = 1 if exercise_angina == "Yes" else 0
 
     oldpeak = st.number_input("Oldpeak (ST depression)", min_value=0.0, max_value=6.0, value=1.0, step=0.1)
+
     st_slope = st.selectbox("ST Slope", ["Upsloping", "Flat", "Downsloping"])
     st_slope_dict = {
         "Upsloping": 0,
@@ -95,3 +104,7 @@ if st.button("🔍 Predict"):
             "Oldpeak": oldpeak,
             "ST Slope": list(st_slope_dict.keys())[list(st_slope_dict.values()).index(st_slope)]
         })
+
+
+    
+    
