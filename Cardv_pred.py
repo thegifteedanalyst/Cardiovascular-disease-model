@@ -12,7 +12,7 @@ st.set_page_config(page_title="Cardiovascular Risk Predictor", layout="wide")
 
 # Load and display heart image
 image = Image.open("heart.png")  # Make sure this file exists in your working directory
-st.image(image, caption="Know Your Heart Health ❤️", use_column_width=True)
+st.image(image, caption="Know Your Heart Health ❤️", use_container_width=True)
 
 # App title and description
 st.title("🫀 Cardiovascular Disease Risk Predictor")
