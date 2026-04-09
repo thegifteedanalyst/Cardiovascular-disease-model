@@ -1,4 +1,4 @@
-🫀 Cardiovascular Disease Predictor
+#🫀 Cardiovascular Disease Predictor
 A simple and interactive web app built with **Streamlit** that uses a trained machine learning model to predict the risk of cardiovascular disease based on user inputs like age, cholesterol, and blood pressure.
 
 🔗 Live App: [Click here to try it out!](https://cardiovascular-disease-model-thegifteedanalyst.streamlit.app/)  
